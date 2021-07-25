@@ -18,8 +18,8 @@ const User = require("./models/user");
 
 mongoose.connect(
     //データベース接続を設定する
-    "mongodb://localhost:27017/user_db",
-    {useNewUrlParser: true}
+    process.env.MONGODB_URL || "mongodb://localhost:27017/user_db",
+    {useNewUrlParser: true, useFindAndModify: false}
 );
 mongoose.set("useCreateIndex", true);
 
