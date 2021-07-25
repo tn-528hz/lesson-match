@@ -1,0 +1,14 @@
+<div class="data-form">
+    <form class="form-signin" action="<%=`/courses/create`%>" method="POST">
+      <h2 class="form-signin-heading">コースを作成する</h2>
+      <label for="inputTitle">タイトル</label>
+      <input type="text" name="title" id="inputTitle" class="form-control" placeholder="タイトル" autofocus>
+      <label for="inputDescription">内容</label>
+      <input type="text" name="description" id="inputDescription" class="form-control" placeholder="説明">
+      <label for="inputMaxStudents">受講可能人数</label>
+      <input type="text" name="maxStudents" id="inputMaxStudents" pattern="\d*" class="form-control" placeholder="受講可能人数" required>
+      <label for="inputCost">値段</label>
+      <input type="text" name="cost" id="inputCost" pattern="\d*" class="form-control" placeholder="値段" required>
+      <br /><button class="btn btn-lg btn-primary btn-block" type="submit">保存する</button>
+    </form>
+  </div>

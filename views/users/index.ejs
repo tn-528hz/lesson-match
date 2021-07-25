@@ -1,0 +1,36 @@
+<h2 class="center">ユーザーページ</h2>
+<div class="center">
+  <a class="button" href="/users/new">アカウントを作成</a>
+</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th>名前</th>
+      <th>Email</th>
+      <th>編集</th>
+      <th>削除</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% users.forEach(user => { %>
+    <tr>
+      <td>
+        <a href="<%=`/users/${user._id}`%>">
+          <%= user.fullName %>
+        </a>
+      </td>
+      <td>
+        <%= user.email %>
+      </td>
+      <td>
+        <a href="<%=`/users/${user._id}/edit`%>">
+          編集
+        </a>
+      </td>
+      <td>
+        <a href="<%=`/users/${user._id}/delete?_method=DELETE` %>" onclick="return confirm('削除しますか?')" a>削除</a>
+      </td>
+    </tr>
+    <% }); %>
+  </tbody>
+</table>

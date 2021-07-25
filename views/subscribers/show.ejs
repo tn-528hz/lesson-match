@@ -1,0 +1,13 @@
+<h1>登録者データ <%= subscriber.name %></h1>
+<table>
+    <tr>
+        <th>名前</th>
+        <td><%= subscriber.name %></td>
+    </tr>
+    <tr>
+        <th>Email</th>
+        <td><%= subscriber.email %></td>
+    </tr>
+</table>
+
+<p>参加しているコースは <%= subscriber.courses.length %> です。</p>
