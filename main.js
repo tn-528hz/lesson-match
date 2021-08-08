@@ -25,7 +25,7 @@ client.connect(err => {
   client.close();
 });
 
-
+//NoguchiTakato:hthmm0528T@cluster0.ognka.mongodb.net/user_db
 
 mongoose.connect(
     //データベース接続を設定する
