@@ -25,6 +25,8 @@ client.connect(err => {
   client.close();
 });
 
+
+
 mongoose.connect(
     //データベース接続を設定する
     process.env.MONGODB_URL || "mongodb://localhost:27017/user_db",
