@@ -17,7 +17,7 @@ const connectFlash = require("connect-flash");
 const User = require("./models/user");
 
 const { MongoClient } = require('mongodb');
-const uri = "mongodb+srv://NoguchiTakato:hthmm0528T@cluster1.ognka.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+const uri = "mongodb+srv://NoguchiTakato:<hthmm0528T>@cluster1.ognka.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 client.connect(err => {
   const collection = client.db("test").collection("devices");
