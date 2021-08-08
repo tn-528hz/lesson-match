@@ -25,11 +25,11 @@ client.connect(err => {
   client.close();
 });
 
-//NoguchiTakato:hthmm0528T@cluster0.ognka.mongodb.net/user_db
+
 
 mongoose.connect(
     //データベース接続を設定する
-    process.env.MONGODB_URL || "mongodb://localhost:27017/user_db",
+    process.env.MONGODB_URL || "//NoguchiTakato:hthmm0528T@cluster0.ognka.mongodb.net/user_db",
     {useNewUrlParser: true, useFindAndModify: false}
 );
 mongoose.set("useCreateIndex", true);
