@@ -16,6 +16,7 @@ const expressValidator = require("express-validator");
 const connectFlash = require("connect-flash");
 const User = require("./models/user");
 
+//MongoDB Atlasとの接続
 const { MongoClient } = require('mongodb');
 
 const DB_NAME = `user_db`;
