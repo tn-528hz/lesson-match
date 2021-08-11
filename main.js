@@ -17,23 +17,42 @@ const connectFlash = require("connect-flash");
 const User = require("./models/user");
 
 const { MongoClient } = require('mongodb');
-const uri = "mongodb+srv://NoguchiTakato:<hthmm0528T>@cluster1.ognka.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+
+const DB_NAME = `user_db`;
+const USER_NAME = `TakatoNoguchi`;
+const USER_PASSWD = `hthmm0528T`;
+const HOST_NAME = `cluster0.ognka.mongodb.net/test`;
+
+const uri = `mongodb+srv://${USER_NAME}:${USER_PASSWD}@${HOST_NAME}/${DB_NAME}?retryWrites=true&w=majority`;
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 client.connect(err => {
   const collection = client.db("test").collection("devices");
   // perform actions on the collection object
+  console.log("Connected successfully to server");
   client.close();
 });
 
-
-
-mongoose.connect(
-    //データベース接続を設定する
-    process.env.MONGODB_URL || "//NoguchiTakato:hthmm0528T@cluster0.ognka.mongodb.net/user_db",
-    {useNewUrlParser: true, useFindAndModify: false}
-);
-mongoose.set("useCreateIndex", true);
-
+if (process.env.NODE_ENV !== 'production') {
+    const MONGODB_URI = 'mongodb+srv://NoguchiTakato:hthmm0528T@cluster0.ognka.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+    mongoose.connect(MONGODB_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      dbName: 'todo-app',
+    })
+      .catch((err) => {
+        console.error(err);
+      });
+  } else {
+    mongoose.connect(process.env.MONGODB_URI || '', {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      dbName: 'user_db',
+    })
+      .catch((err) => {
+        console.error(err);
+      });
+  }
+  
 //ejsの使用をアプリに設定
 app.set("view engine", "ejs");
 
